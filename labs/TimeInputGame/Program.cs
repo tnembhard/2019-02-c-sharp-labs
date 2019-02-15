@@ -11,7 +11,7 @@ namespace TimeInputGame
         static void Main(string[] args)
         {
             bool choice = false;
-            Console.WriteLine("Please choose between playing simple (unsorted) or strict (sorted) mode: ");
+            Console.WriteLine("Please choose between playing the simple (unsorted) or strict (sorted) mode: ");
             string mode = Console.ReadLine();
 
             while (choice == false)
@@ -42,23 +42,23 @@ namespace TimeInputGame
             int userTime = 0;
             Console.WriteLine("Input the how long you want game to run for in seconds: ");
             userTime = Convert.ToInt32(Console.ReadLine());
-            var time = DateTime.UtcNow;
+            var time = DateTime.Now;
 
             do
             {
                 input.Add(Console.ReadKey().KeyChar);                
-            } while (DateTime.UtcNow - time < TimeSpan.FromSeconds(userTime));
+            } while (DateTime.Now - time < TimeSpan.FromSeconds(userTime));
 
             Console.WriteLine(" ");
             Console.WriteLine("Time is up!");
             Console.WriteLine(" ");
-            Console.Write(" You inputted the following  { ");
+            Console.Write(" You inputted the following keys: ' ");
             for (int j = 0; j < input.Count; j++)
             {
                 Console.Write(input[j]);
                 count = j;
             }
-            Console.Write(" } ");
+            Console.Write(" ' ");
             Console.WriteLine(" You entered a total of: "+count+" characters.");
         }
 
@@ -74,7 +74,7 @@ namespace TimeInputGame
             int k = 0;
             Console.WriteLine("Input the how long you want game to run for in seconds: ");
             userTime = Convert.ToInt32(Console.ReadLine());
-            var time = DateTime.UtcNow;
+            var time = DateTime.Now;
 
             do
             {
@@ -89,18 +89,18 @@ namespace TimeInputGame
                     Console.WriteLine("Invalid input"); 
                 }
 
-            } while (DateTime.UtcNow - time < TimeSpan.FromSeconds(userTime));
+            } while (DateTime.Now - time < TimeSpan.FromSeconds(userTime));
 
             Console.WriteLine(" ");
             Console.WriteLine("Time is up!");
             Console.WriteLine(" ");
-            Console.Write(" You inputted the following  { ");
+            Console.Write(" You inputted the following keys: ' ");
             for (int j = 0; j < input.Count; j++)
             {
                 Console.Write(input[j]);
                 count = j;
             }
-            Console.Write(" } ");
+            Console.Write(" ' ");
             Console.WriteLine(" You entered a total of: " + count + " characters.");
         }
     }

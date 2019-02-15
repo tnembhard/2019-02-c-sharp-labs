@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace lab_106_game_increase_score_01
 {
@@ -23,6 +24,39 @@ namespace lab_106_game_increase_score_01
         public MainWindow()
         {
             InitializeComponent();
+            Initialise();
+        }
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            Save();
+            
+        }
+
+        private void UpButton_Click(object sender, RoutedEventArgs e)
+        {
+            usrCurrentScoreTxt.Text = Convert.ToString(Convert.ToInt16(usrCurrentScoreTxt.Text) + 1);
+            Save();
+        }
+
+        private void DownButton_Click(object sender, RoutedEventArgs e)
+        {
+            usrCurrentScoreTxt.Text = Convert.ToString(Convert.ToInt16(usrCurrentScoreTxt.Text) - 1);
+            Save();
+        }
+
+        private void Save ()
+        {
+            File.WriteAllText("lab_106_Output.txt", usrNameTxt.Text + Environment.NewLine + usrLevelTxt.Text + Environment.NewLine + usrScoreTxt.Text + Environment.NewLine + usrCurrentScoreTxt.Text);
+        }
+
+        private void Initialise()
+        {
+            string[] init = File.ReadAllLines("lab_106_Output.txt");
+            usrNameTxt.Text = init[0];
+            usrLevelTxt.Text = init[1];
+            usrScoreTxt.Text = init[2];
+            usrCurrentScoreTxt.Text = init[3];
+
         }
 
         // Create a Gaming home page

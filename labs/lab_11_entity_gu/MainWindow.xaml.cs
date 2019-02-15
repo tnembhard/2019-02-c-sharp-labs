@@ -12,9 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.IO;
 
-namespace lab_105_game_name_and_score_01
+namespace lab_11_entity_gu
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -24,20 +23,12 @@ namespace lab_105_game_name_and_score_01
         public MainWindow()
         {
             InitializeComponent();
-            
+            Initialize();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        void Initialize()
         {
-                                 
-            File.WriteAllText("lab_105_Output.txt",usrNameTxt.Text+ Environment.NewLine+usrLevelTxt.Text+Environment.NewLine+ usrScoreTxt.Text);
+
         }
-
-        // Create a Gaming home page
-        // Name of gamer (saved to text file)
-        // Level reached (saved to text file)
-        // Top score
-        // Prize for best presented interface
-
     }
 }
+    

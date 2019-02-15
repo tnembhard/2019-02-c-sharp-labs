@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBox x:Name="usrNameTxt"  HorizontalAlignment="Left" Height="26" Margin="129,50,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="110"/>
+        <TextBox x:Name="usrLevelTxt"  HorizontalAlignment="Left" Height="26" Margin="129,98,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="110"/>
+        <TextBox x:Name="usrScoreTxt"  HorizontalAlignment="Left" Height="26" Margin="129,146,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="110"/>
+        <Label x:Name="usrName" Content="Name: " HorizontalAlignment="Left" Height="26" Margin="62,50,0,0" VerticalAlignment="Top" Width="62" FontSize="15" FontWeight="Bold" Foreground="#FFF4ECEC"/>
+        <Label x:Name="usrLevel" Content="Level: " HorizontalAlignment="Left" Height="26" Margin="62,98,0,0" VerticalAlignment="Top" Width="62" FontSize="15" FontWeight="Bold" Foreground="#FFF4ECEC"/>
+        <Label x:Name="usrScore" Content="Score: " HorizontalAlignment="Left" Height="26" Margin="62,146,0,0" VerticalAlignment="Top" Width="62" FontSize="15" FontWeight="Bold" Foreground="#FFF4ECEC"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="129,264,0,0" VerticalAlignment="Top" Width="110" Click="Save_Click"/>
+        <TextBox x:Name="usrCurrentScoreTxt"  HorizontalAlignment="Left" Height="26" Margin="129,193,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="110"/>
+        <Label x:Name="usrCurrentScore" Content="Current Score: " HorizontalAlignment="Left" Height="26" Margin="10,193,0,0" VerticalAlignment="Top" Width="114" FontSize="15" FontWeight="Bold" Foreground="#FFF4ECEC"/>
+        <Button x:Name="UpButton" Content="Up" HorizontalAlignment="Left" Margin="129,224,0,0" VerticalAlignment="Top" Width="41" Height="20" Click="UpButton_Click"/>
+        <Button x:Name="DownButton" Content="Down" HorizontalAlignment="Left" Margin="198,224,0,0" VerticalAlignment="Top" Width="41" Height="20" Click="DownButton_Click"/>
+        <ListBox x:Name="folderList"  HorizontalAlignment="Left" Height="169" Margin="297,50,0,0" VerticalAlignment="Top" Width="184"/>
+        <ListBox x:Name="fileList"  HorizontalAlignment="Left" Height="122" Margin="525,50,0,0" VerticalAlignment="Top" Width="137"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="http://fc09.deviantart.net/fs70/f/2012/142/6/a/crusader_kings_2_loading_screen_by_zenarion-d50ow97.jpg" Stretch="UniformToFill"></ImageBrush>
+        </Grid.Background>
+
     </Grid>
 </Window>
