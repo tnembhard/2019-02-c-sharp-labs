@@ -111,16 +111,49 @@ namespace Game_Connect_Four
         public void Win(int col, int row)
         {
 
+            //for (int i = 0; i <= 3; i++)
+            //{              
+            //    int count1 = 0;
+            //    int count2 = 0;
+
+            //    foreach (var cells in WinCon(col, row, i))
+            //    {
+            //        if (c4[cells[0], cells[1]] == 1)
+            //        {
+            //            count1++;
+            //        }
+            //        else if (c4[cells[0], cells[1]] == 2)
+            //        {
+            //            count2++;
+            //        }
+            //        else
+            //        {
+            //            break;
+            //        }
+
+            //        if (count1 == 2)
+            //        {
+            //            MessageBox.Show("Winner player 1");
+            //            break;
+            //        }
+            //        else if (count2 == 2)
+            //        {
+            //            MessageBox.Show("Winner player 2");
+            //            break;
+            //        }
+            //    }
+            //}
+
             for (int i = 0; i <= 3; i++)
             {
-                var xero = true;
                 int count1 = 0;
                 int count2 = 0;
+
                 foreach (var cells in WinCon(col, row, i))
                 {
                     if (c4[cells[0], cells[1]] == 1)
                     {
-                        count1++;
+                        count1++;                        
                     }
                     else if (c4[cells[0], cells[1]] == 2)
                     {
@@ -128,6 +161,8 @@ namespace Game_Connect_Four
                     }
                     else
                     {
+                        count1 = 0;
+                        count2 = 0;
                         break;
                     }
 
@@ -143,6 +178,7 @@ namespace Game_Connect_Four
                     }
                 }
             }
+
         }
 
         public List<int[]> WinCon(int row, int col, int direction)

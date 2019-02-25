@@ -1,0 +1,17 @@
+﻿<Window x:Class="lab_114_Entity_GUI_01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab_114_Entity_GUI_01"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="Black">
+        <ListBox x:Name="List01"  HorizontalAlignment="Left" Height="212" Margin="52,159,0,0" VerticalAlignment="Top" Width="182" Background="AliceBlue" SelectionChanged="List01_SelectionChanged"/>
+        <TextBox x:Name="TextName" HorizontalAlignment="Left" Height="30" Margin="261,159,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="118"/>
+        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Left" Margin="279,275,0,0" VerticalAlignment="Top" Width="82" Height="30" Click="UpdateBtn_Click"/>
+        <ComboBox x:Name="CombiName" HorizontalAlignment="Left" Margin="261,224,0,0" VerticalAlignment="Top" Width="118" Height="28" SelectionChanged="CombiName_SelectionChanged"/>
+        <Label x:Name="LabelCity" Content="Label" HorizontalAlignment="Left" Margin="417,159,0,0" VerticalAlignment="Top" Height="30" Width="112" Foreground="#FFF7F3F3"/>
+
+    </Grid>
+</Window>
