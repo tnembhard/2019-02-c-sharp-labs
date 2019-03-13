@@ -1,0 +1,36 @@
+﻿<Window x:Class="lab_122_wpf_code_first_database_02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab_122_wpf_code_first_database_02"
+        mc:Ignorable="d"
+        Title="My BookShelf" Height="auto" Width="auto" Background="DarkSeaGreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="lBox1"  Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" SelectionChanged="LBox1_SelectionChanged"/>
+        <ListBox x:Name="lBox2" Grid.Column="3" Grid.Row="2"/>
+        <Label x:Name="lBox1Name" Grid.Column="1" Grid.Row="1" Content="Books" Height="30" />
+        <Label x:Name="lBox2Name" Grid.Column="3" Grid.Row="1" Content="Details" Height="30"/>
+        <Button x:Name="btnUpdateWin" Content="Update" Grid.Row="4" Width="80" Grid.Column="3" Height="30" Click="BtnUpdateWin_Click"/>
+        <Button x:Name="btnDelete" Content="Delete" Grid.Row="3" Width="80" Grid.Column="3" Height="30" Click="BtnDelete_Click"/>
+        <Button x:Name="btnRefresh" Content="Refresh" Grid.Row="4" Width="80" Grid.Column="4" Height="30" Click="BtnRefresh_Click" />
+        <Button x:Name="btnAddAuthor" Content="Author" Grid.Row="3" Width="80" Grid.Column="4" Height="30" Click="BtnAddAuthor_Click"  />
+        <ListBox x:Name="lBoxAuthor"  Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" SelectionChanged="LBoxAuthor_SelectionChanged"  />
+    </Grid>
+</Window>

@@ -1,0 +1,58 @@
+﻿@page
+@model lab_35_ASP_core_entity_web.Pages.CustomersModel
+@{
+    //ViewData["Title"] = "Customers";
+}
+
+<style>
+    .container {
+        background:rgb(240,240,240);
+    }
+    div.col-sm-3 {
+        background: rgb(230,230,230);
+        padding: 3vh 2vh;
+        margin: 2vh 0;
+    }
+</style>
+
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="https://www.spartaglobal.com">Sparta </a>
+            <img src="https://pbs.twimg.com/profile_images/918487446526054400/tbCLvxih_400x400.jpg" width="100px" />
+        </div>
+    </nav>
+
+    <!-- add customer -->
+    <div class="row">
+        <h6> Add a new customer</h6>
+        <form method="POST">
+            <div><input asp-for="customer.CustomerID"/></div>
+            <div><input asp-for="customer.ContactName"/></div>
+            <div><input asp-for="customer.CompanyName"/></div>
+            <input type="submit" />
+        </form>
+    </div>
+
+    @foreach (var c in Model.customers)
+    {
+        <div class="row">
+            <div class="col-sm-3">
+                @c.CustomerID
+            </div>
+            <div class="col-sm-3">
+                @c.ContactName
+            </div>
+            <div class="col-sm-3">
+                @c.City
+            </div>
+            <div class="col-sm-3">
+                @c.Country
+            </div>
+        </div>
+    }
+
+
+</div>

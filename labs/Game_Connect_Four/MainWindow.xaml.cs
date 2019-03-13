@@ -29,10 +29,12 @@ namespace Game_Connect_Four
         public bool player1 = true;
 
         public int[,] c4 = new int[7, 6];
+        public int count1 = 0;
+        public int count2 = 0;
 
         void Initialise()
         {
-            TurnBox.Text = "PLAYER 1 (BLUE)'s TURN";
+            TurnLabel.Content = "PLAYER 1 (BLUE)'s TURN";
         }
 
         private void Button1_Click(object sender, RoutedEventArgs e)
@@ -72,7 +74,7 @@ namespace Game_Connect_Four
 
         public void Box(int col)
         {
-            for (int i = 5; i > (0 - 1); i--)
+            for (int i = 5; i >= 0; i--)
             {
                 if (c4[col, i] == 0)
                 {
@@ -86,7 +88,7 @@ namespace Game_Connect_Four
                         Grid.SetRow(test, i);
                         cgrid.Children.Add(test);
                         player1 = false;
-                        TurnBox.Text = "PLAYER 2 (RED)'s TURN";
+                        TurnLabel.Content = "PLAYER 2 (RED)'s TURN";
                         Win(col, i);
                         break;
                     }
@@ -100,7 +102,7 @@ namespace Game_Connect_Four
                         Grid.SetRow(test, i);
                         cgrid.Children.Add(test);
                         player1 = true;
-                        TurnBox.Text = "PLAYER 1 (BLUE)'s TURN";
+                        TurnLabel.Content = "PLAYER 1 (BLUE)'s TURN";
                         Win(col, i);
                         break;
                     }
@@ -109,144 +111,82 @@ namespace Game_Connect_Four
         }
 
         public void Win(int col, int row)
-        {
-
-            //for (int i = 0; i <= 3; i++)
-            //{              
-            //    int count1 = 0;
-            //    int count2 = 0;
-
-            //    foreach (var cells in WinCon(col, row, i))
-            //    {
-            //        if (c4[cells[0], cells[1]] == 1)
-            //        {
-            //            count1++;
-            //        }
-            //        else if (c4[cells[0], cells[1]] == 2)
-            //        {
-            //            count2++;
-            //        }
-            //        else
-            //        {
-            //            break;
-            //        }
-
-            //        if (count1 == 2)
-            //        {
-            //            MessageBox.Show("Winner player 1");
-            //            break;
-            //        }
-            //        else if (count2 == 2)
-            //        {
-            //            MessageBox.Show("Winner player 2");
-            //            break;
-            //        }
-            //    }
-            //}
-
-            for (int i = 0; i <= 3; i++)
+        {         
+            for (int i = 0; i < 4; i++)
             {
-                int count1 = 0;
-                int count2 = 0;
-
-                foreach (var cells in WinCon(col, row, i))
-                {
-                    if (c4[cells[0], cells[1]] == 1)
-                    {
-                        count1++;                        
-                    }
-                    else if (c4[cells[0], cells[1]] == 2)
-                    {
-                        count2++;
-                    }
-                    else
-                    {
-                        count1 = 0;
-                        count2 = 0;
-                        break;
-                    }
-
-                    if (count1 == 2)
-                    {
-                        MessageBox.Show("Winner player 1");
-                        break;
-                    }
-                    else if (count2 == 2)
-                    {
-                        MessageBox.Show("Winner player 2");
-                        break;
-                    }
-                }
+                Check((row - i), col);
             }
-
+            WinText();
+            for (int i = 0; i < 4; i++)
+            {
+                Check((row + i), col);
+            }
+            WinText();
+            for (int i = 0; i < 4; i++)
+            {
+                Check(row, (col - i));
+            }
+            WinText();
+            for (int i = 0; i < 4; i++)
+            {
+                Check(row, (col + i));
+            }
+            WinText();
+            for (int i = 0; i < 4; i++)
+            {
+                Check((row - i), (col - i));
+            }
+            WinText();
+            for (int i = 0; i < 4; i++)
+            {
+                Check((row + i), (col + i));
+            }
+            WinText();
+            for (int i = 0; i < 4; i++)
+            {
+                Check((row + i), (col - i));
+            }
+            WinText();
+            for (int i = 0; i < 4; i++)
+            {
+                Check((row - i), (col + i));
+            }
+            WinText();
         }
 
-        public List<int[]> WinCon(int row, int col, int direction)
-        {
-            List<int[]> incells = new List<int[]>();
-            switch (direction)
+        public int Check (int col, int row)
+        { 
+            try
             {
-                case 1:
-                    incells.Add(new[] { row - 1, col });
-                    incells.Add(new[] { row - 2, col });
-                    incells.Add(new[] { row - 3, col });
-                    incells.Add(new[] { row - 4, col });
-                    incells.Add(new[] { row - 5, col });
-                    incells.Add(new[] { row + 1, col });
-                    incells.Add(new[] { row + 2, col });
-                    incells.Add(new[] { row + 3, col });
-                    incells.Add(new[] { row + 4, col });
-                    incells.Add(new[] { row + 5, col });
-                    break;
-                case 2:
-                    incells.Add(new[] { row, col + 1 });
-                    incells.Add(new[] { row, col + 2 });
-                    incells.Add(new[] { row, col + 3 });
-                    incells.Add(new[] { row, col + 4 });
-                    incells.Add(new[] { row, col + 5 });
-                    incells.Add(new[] { row, col + 6 });
-                    incells.Add(new[] { row, col - 1 });
-                    incells.Add(new[] { row, col - 2 });
-                    incells.Add(new[] { row, col - 3 });
-                    incells.Add(new[] { row, col - 4 });
-                    incells.Add(new[] { row, col - 5 });
-                    incells.Add(new[] { row, col - 6 });
-                    break;
-                case 3:
-                    incells.Add(new[] { row + 1, col + 1 });
-                    incells.Add(new[] { row + 2, col + 2 });
-                    incells.Add(new[] { row + 3, col + 3 });
-                    incells.Add(new[] { row + 4, col + 4 });
-                    incells.Add(new[] { row + 5, col + 5 });
-                    incells.Add(new[] { row - 1, col - 1 });
-                    incells.Add(new[] { row - 2, col - 2 });
-                    incells.Add(new[] { row - 3, col - 3 });
-                    incells.Add(new[] { row - 4, col - 4 });
-                    incells.Add(new[] { row - 5, col - 5 });
-                    break;
-                default:
-                    incells.Add(new[] { row - 1, col + 1 });
-                    incells.Add(new[] { row - 2, col + 2 });
-                    incells.Add(new[] { row - 3, col + 3 });
-                    incells.Add(new[] { row - 4, col + 4 });
-                    incells.Add(new[] { row - 5, col + 5 });
-                    incells.Add(new[] { row + 1, col - 1 });
-                    incells.Add(new[] { row + 2, col - 2 });
-                    incells.Add(new[] { row + 3, col - 3 });
-                    incells.Add(new[] { row + 4, col - 4 });
-                    incells.Add(new[] { row + 5, col - 5 });
-                    break;
-            }
-
-            List<int[]> outCells = new List<int[]>();
-            foreach (var cells in incells)
-            {
-                if (cells[0] >= 0 && cells[0] < 6 && cells[1] >= 0 && cells[1] < 5)
+                if (c4[row , col] == 1)
+                { 
+                    count1++; 
+                }
+                else if (c4[row, col] == 2)
                 {
-                    outCells.Add(cells);
+                    count2++;
+                }
+                else if (c4[row, col] == 0)
+                {
+                    return count1;
                 }
             }
-            return outCells;
+            catch { }            
+            return count1;
+        }
+
+        public void WinText ()
+        {
+            if (count1 == 4)
+            {
+                MessageBox.Show("Winner player 1");
+            }
+            else if (count2 == 4)
+            {
+                MessageBox.Show("Winner player 2");
+            }
+            count1 = 0;
+            count2 = 0;
         }
     }
 }
